@@ -1,6 +1,5 @@
 int choose_avatar(int player_count, int *player_array) {
 	int player = 0, flag, for_flag;
-	printf("player_count = %d", player_count);
 	for (int i = 0; i < player_count; ++i) {
 		flag = 1;
 		while (flag == 1) {

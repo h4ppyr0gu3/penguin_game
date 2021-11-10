@@ -53,3 +53,7 @@ int print_stage(int x, int y, int **array) {
 	}
 	return 0;
 }
+
+int print_scoreboard(int *score_board_array) {
+	printf("\nscore_board_array\n");
+}
