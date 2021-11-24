@@ -1,6 +1,8 @@
 #include "game_params.h"
+#include "printer.h"
+#include <stdio.h>
 
-int print_stage(GameParams *game_params) {
+void print_stage(GameParams *game_params) {
 	const char *letters[26] = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 	for (int i = -1; i < game_params->x_value; ++i) {
 		for (int j = -1; j < game_params->y_value; ++j) {
@@ -31,9 +33,8 @@ int print_stage(GameParams *game_params) {
 		}
 		printf("\n");
 	}
-	return 0;
 }
 
-int print_scoreboard() {
+void print_scoreboard(GameParams *game_params) {
 	printf("\nscore_board_array\n");
 }

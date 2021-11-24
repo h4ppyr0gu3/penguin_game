@@ -1,4 +1,9 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#include <math.h>
 #include "game_params.h"
+#include "map_gen.h"
 
 void generate_map(GameParams *game_params) {
 	int map_point, one, two, three, ice, flag, random;
@@ -14,7 +19,6 @@ void generate_map(GameParams *game_params) {
 	for (int i = 0; i < game_params->x_value; ++i)	{
 		for (int j = 0; j < game_params->y_value; ++j) {
 			game_params->board[i][j] = -1;
-			printf("%d ", game_params->board[i][j]);
 		}
 	}
 

@@ -1,10 +1,14 @@
 #include "game_params.h"
+#include "placement.h"
+#include "printer.h"
+#include <stdio.h>
+#include <stdlib.h>
+// #include <math.h>
 
-int placement(GameParams *game_params) {
+void placement(GameParams *game_params) {
 	char position[5];
 	char *clear = "clear";
 	int error_count, x, y;
-
 
 	for (int i = 0; i < game_params->penguin_count ; ++i) {
 		for (int j = 0; j < game_params->player_count; ++j) {
@@ -13,7 +17,7 @@ int placement(GameParams *game_params) {
 				printf("Player %d: \n ", (j + 1));
 				printf("\t please select a place to put penguins \n\t ie: \"a1\": ");
 				scanf(" %s", position);
-				// system(clear);
+				system(clear);
 
 				error_count = 0;
 				x = position[0] - 97;

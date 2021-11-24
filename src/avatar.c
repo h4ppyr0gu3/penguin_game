@@ -1,8 +1,10 @@
+// #include "avatar.h"
 #include "game_params.h"
+#include <stdio.h>
 
 void choose_avatar(GameParams *game_params) {
 	int player = 0, flag, for_flag;
-	for (int i = 0; i < game_params->player_count; ++i) {
+	for (int i = 0; i < game_params->player_count; i++) {
 		flag = 1;
 		while (flag == 1) {
 			for_flag = 1;
@@ -17,7 +19,6 @@ void choose_avatar(GameParams *game_params) {
 			printf("Value: ");
 			scanf(" %d", &player);
 			for(int j = 0; j < game_params->player_count; ++j) {
-			printf("i: %d \n j: %d \n player: %d \n", i, j, player);
 				if (game_params->player_array[j] == (10 + player)) {
 					for_flag = 0;
 					printf("that avatar has been taken, please choose another one \n");
@@ -28,7 +29,5 @@ void choose_avatar(GameParams *game_params) {
 				flag = 0;
 			}
 		}
-		printf("avatar: %d \n", game_params->player_array[i]);
 	}
-	printf("inside avatar");
 }
