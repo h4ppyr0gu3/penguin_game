@@ -1,0 +1,7 @@
+./**/*.o
+./*.o
+./**/*.d
+./*.d
+./penguins
+./movement
+./test
