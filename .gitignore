@@ -1,8 +1,8 @@
-./**/*.o
-./*.o
-./**/*.d
-./*.d
-./src/obj/
+**/*.o
+*.o
+**/*.d
+*.d
+src/obj/
 penguins
-./movement
-./test
+movement
+test
