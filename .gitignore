@@ -2,6 +2,7 @@
 ./*.o
 ./**/*.d
 ./*.d
+./src/obj/
 ./penguins
 ./movement
 ./test
