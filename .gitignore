@@ -3,6 +3,6 @@
 ./**/*.d
 ./*.d
 ./src/obj/
-./penguins
+penguins
 ./movement
 ./test
