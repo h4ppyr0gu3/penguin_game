@@ -24,7 +24,7 @@ void print_stage(GameParams *game_params) {
 					case 14: printf(" \033[3;43;30m$\033[0m"); break;
 					case 15: printf(" \x1B[35m%%\033[0m"); break;
 					case 16: printf(" \033[3;104;30m&\033[0m"); break;
-					default: printf(" 2"); break;
+					default: printf("x"); break;
 				}
 			}
 		}

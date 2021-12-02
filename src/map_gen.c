@@ -32,8 +32,7 @@ void generate_map(GameParams *game_params) {
 			while (flag == 0) {
 				random = rand() % 4;
 				switch (random) {
-					case 0:
-						if(ice > 0) {
+					case 0: if(ice > 0) {
 							map_point = 0;
 							ice--;
 							flag++;
@@ -41,8 +40,7 @@ void generate_map(GameParams *game_params) {
 						} else {
 							break;
 						}
-					case 1:
-						if(one > 0) {
+					case 1: if(one > 0) {
 							map_point = 1;
 							one--;
 							flag++;
@@ -50,8 +48,7 @@ void generate_map(GameParams *game_params) {
 						} else {
 							break;
 						}
-					case 2:
-						if(two > 0) {
+					case 2: if(two > 0) {
 							map_point = 2;
 							two--;
 							flag++;
@@ -59,8 +56,7 @@ void generate_map(GameParams *game_params) {
 						} else {
 							break;
 						}
-					case 3:
-						if(three > 0) {
+					case 3: if(three > 0) {
 							map_point = 3;
 							three--;
 							flag++;
