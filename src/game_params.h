@@ -10,6 +10,6 @@ typedef struct {
 	int* player_array;
 	int* scoreboard_array;
 	int difficulty;
-} GameParams;
+} GameParams; // Declare game params struct
 
 #endif
