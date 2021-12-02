@@ -3,6 +3,6 @@
 
 #include "game_params.h"
 
-void choose_avatar(GameParams *game_params);
+void choose_avatar(GameParams *game_params); // updates player array in game params struct
 
 #endif
