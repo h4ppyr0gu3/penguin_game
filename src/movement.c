@@ -15,20 +15,19 @@ void movement(GameParams *game_params) {
 	while (flag < 2) {
 		for (int j = 0; j < game_params->player_count; ++j) {
 			if (player_can_move(j, game_params)) {
-					print_stage(game_params);
-					print_scoreboard(game_params);
+				print_stage(game_params);
+				print_scoreboard(game_params);
 
-					printf("Player %d: \n ", (j + 1));
-					printf("\t please select a penguin to move: \n\t ");
+				printf("Player %d: \n ", (j + 1));
+				printf("\t please select a penguin to move: \n\t ");
 
-					read_source(game_params, source, j);
-					read_destination(game_params, source, destination);
+				read_source(game_params, source, j);
+				read_destination(game_params, source, destination);
 
-					// read_values(array);
-					// system(clear);
+				system(clear);
 
-						game_params->board[source[0]][source[1]] = 0;
-						game_params->board[destination[0]][destination[1]] = game_params->player_array[j];
+				game_params->board[source[0]][source[1]] = 0;
+				game_params->board[destination[0]][destination[1]] = game_params->player_array[j];
 			} else {
 				flag++;
 			}

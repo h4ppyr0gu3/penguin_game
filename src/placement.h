@@ -4,5 +4,4 @@
 
 void placement(GameParams *game_params); // takes in game params and handles placement
 
-
 #endif
