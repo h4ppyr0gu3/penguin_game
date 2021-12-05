@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include "read_values.h"
 #include "validations.h"
-// #include <math.h>
 
 void placement(GameParams *game_params) {
 	char *clear = "clear";
@@ -19,7 +18,7 @@ void placement(GameParams *game_params) {
 				printf("Player %d: \n ", (j + 1));
 				printf("\t please select a place to put penguins \n\t: ");
 				read_values(array);
-				// system(clear);
+				system(clear);
 
 				error_count = 0;
 				error_count += validate_x(game_params, array);

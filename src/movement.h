@@ -10,5 +10,8 @@
 #define MOVEMENT_H
 
 void movement(GameParams*);
+void read_source(GameParams *game_params, int* source, int current_player);
+void read_destination(GameParams *game_params, int* source, int* destination);
+void perform_move(int* source, int* destination, GameParams *game_params, int current_player);
 
 #endif

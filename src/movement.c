@@ -4,17 +4,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "read_values.h"
+#include "movement.h"
+#include "validations.h"
 // #include <math.h>
 
 void movement(GameParams *game_params) {
 
-	int flag = 0, error_count = 0;
+	int flag = 0;
 	int* source = (int*)malloc(3 * sizeof(int));
 	int* destination = (int*)malloc(3 * sizeof(int));
+	const char* clear = "clear";
 
-	while (flag < 2) {
+	while (flag < game_params->player_count) {
 		for (int j = 0; j < game_params->player_count; ++j) {
 			if (player_can_move(j, game_params)) {
+
 				print_stage(game_params);
 				print_scoreboard(game_params);
 
@@ -26,8 +30,8 @@ void movement(GameParams *game_params) {
 
 				system(clear);
 
-				game_params->board[source[0]][source[1]] = 0;
-				game_params->board[destination[0]][destination[1]] = game_params->player_array[j];
+				perform_move(source, destination, game_params, j);
+
 			} else {
 				flag++;
 			}
@@ -40,9 +44,7 @@ void movement(GameParams *game_params) {
 	free(destination);
 }
 
-
-
-int read_source(GameParams *game_params, int* source, int current_player) {
+void read_source(GameParams *game_params, int* source, int current_player) {
 	int error_count;
 	do {
 		error_count = 0;
@@ -56,7 +58,7 @@ int read_source(GameParams *game_params, int* source, int current_player) {
 	} while (error_count > 0);
 }
 
-int read_destination(GameParams *game_params, int* source, int* destination) {
+void read_destination(GameParams *game_params, int* source, int* destination) {
 	int error_count;
 	do {
 		error_count = 0;
@@ -65,4 +67,10 @@ int read_destination(GameParams *game_params, int* source, int* destination) {
 		error_count += validate_y(game_params, destination);
 		error_count += validate_movement(game_params, source, destination, 1);
 	} while (error_count > 0);
+}
+
+void perform_move(int* source, int* destination, GameParams *game_params, int current_player) {
+	game_params->scoreboard_array[current_player] += game_params->board[destination[0]][destination[1]];
+	game_params->board[source[0]][source[1]] = 0;
+	game_params->board[destination[0]][destination[1]] = game_params->player_array[current_player];
 }

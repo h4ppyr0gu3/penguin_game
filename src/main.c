@@ -10,6 +10,7 @@
 #include "map_gen.h"
 #include "avatar.h"
 #include "placement.h"
+#include "movement.h"
 #include "arguments.h"
 
 void print_game_params(GameParams *game_params) {
@@ -48,7 +49,7 @@ int main(int argc, char *argv[]) {
 	placement(params_ptr); 
 
 	for (int i = 0; i < game_params.player_count; ++i) {
-		game_params.scoreboard_array[i] = penguin_count;
+		game_params.scoreboard_array[i] = game_params.penguin_count;
 	}
 
 	print_stage(params_ptr);
