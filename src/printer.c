@@ -36,5 +36,20 @@ void print_stage(GameParams *game_params) {
 }
 
 void print_scoreboard(GameParams *game_params) {
+	printf("\n-----------------------------------------------\n");
+	for (int i = 0; i < game_params->player_count; ++i) {
+		switch (game_params->player_array[i]) {
+			case 11: printf("Player %d (\033[3;100;30m!\033[0m): %d", i + 1, game_params->scoreboard_array[i]); break;
+			case 12: printf("Player %d (\033[3;44;30m@\033[0m): %d", i + 1, game_params->scoreboard_array[i]); break;
+			case 13: printf("Player %d (\033[3;42;30m#\033[0m): %d", i + 1, game_params->scoreboard_array[i]); break;
+			case 14: printf("Player %d (\033[3;43;30m$\033[0m): %d", i + 1, game_params->scoreboard_array[i]); break;
+			case 15: printf("Player %d (\x1B[35m%%\033[0m): %d", i + 1, game_params->scoreboard_array[i]); break;
+			case 16: printf("Player %d (\033[3;104;30m&\033[0m): %d", i + 1, game_params->scoreboard_array[i]); break;
+			default: printf("x"); break;
+		}
+	}
+	printf("\n-----------------------------------------------\n");
+
+	printf("Player 1 ()");
 	printf("\nscore_board_array\n");
 }
