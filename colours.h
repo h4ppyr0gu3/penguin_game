@@ -23,4 +23,6 @@ void colours() {
   printf("\033[1;47;35mTexting\033[0m\t\t");
   printf("\t\t");
   printf("\n");
+  printf("\n");
+  printf("\e[1mBold\e[0m non-bold");
 }

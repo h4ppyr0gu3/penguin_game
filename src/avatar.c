@@ -1,8 +1,10 @@
 // #include "avatar.h"
 #include "game_params.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 void choose_avatar(GameParams *game_params) {
+	const char* clear = "clear";
 	int player = 0, flag, for_flag;
 	for (int i = 0; i < game_params->player_count; i++) {
 		flag = 1;
@@ -18,6 +20,9 @@ void choose_avatar(GameParams *game_params) {
 			printf("\t\t 6: \t \033[3;104;30m&\033[0m \n\n ");
 			printf("Value: ");
 			scanf(" %d", &player);
+
+			system(clear);
+
 			for(int j = 0; j < game_params->player_count; ++j) {
 				if (game_params->player_array[j] == (10 + player)) {
 					for_flag = 0;
