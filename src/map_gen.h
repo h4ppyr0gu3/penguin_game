@@ -3,8 +3,8 @@
 #define MAP_GEN_H
 
 /**
-*
-* @param game_params 
+*set the board between random values from 1 3 
+* @param game_params this set board params inside of games param strucks
 */ 
 
 void generate_map(GameParams *game_params); // takes game params and updates board array
