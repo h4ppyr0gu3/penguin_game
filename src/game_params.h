@@ -1,6 +1,10 @@
 #ifndef GAME_PARAMS_H
 #define GAME_PARAMS_H
 
+/**
+* defines stucks to store game state so that it's easily accesible
+*/
+
 typedef struct {
 	int x_value;
 	int y_value;
