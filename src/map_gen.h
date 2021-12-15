@@ -4,7 +4,7 @@
 
 /**
 *
-*
+* @param game_params it checks map board 
 */ 
 
 void generate_map(GameParams *game_params); // takes game params and updates board array
