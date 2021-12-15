@@ -7,8 +7,8 @@
 // #include <math.h>
 
 /**
-*
-* @param game_params 
+*it changes players and choose penguings
+* @param game_params state have to be set move
 */
 
 #ifndef MOVEMENT_H
