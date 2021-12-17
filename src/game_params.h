@@ -9,7 +9,9 @@ typedef struct {
 	int** board;
 	int* player_array;
 	int* scoreboard_array;
-	int difficulty;
+	char* phase;
+	char* input_file;
+	char* output_file;
 } GameParams; // Declare game params struct
 
 #endif

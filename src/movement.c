@@ -28,7 +28,7 @@ void movement(GameParams *game_params) {
 				read_source(game_params, source, j);
 				read_destination(game_params, source, destination);
 
-				system(clear);
+				// system(clear);
 
 				perform_move(source, destination, game_params, j);
 
