@@ -8,6 +8,8 @@ typedef struct {
 	int player_count;
 	int** board;
 	int* player_array;
+	char** player_name_array;
+	int me_index;
 	int* scoreboard_array;
 	char* phase;
 	char* input_file;

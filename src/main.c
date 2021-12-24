@@ -19,9 +19,13 @@ int main(int argc, char *argv[]) {
 		interactive(params_ptr);
 	} else if ((strcmp(game_params.phase, "placement") == 0)) {
 		// auto_placement(params_ptr);
-		read_to_board(params_ptr);
+		printf("read");
+
+		int a = read_to_board(params_ptr);
+		printf("read: %d", a);
 		// select_available_positions(params_ptr);
-		// write_to_file(params_ptr);
+		write_to_file(params_ptr);
+		printf("wrote");
 	} else if ((strcmp(game_params.phase, "movement") == 0)) {
 		read_to_board(params_ptr);
 		write_to_file(params_ptr);
