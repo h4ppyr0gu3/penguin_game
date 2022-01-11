@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
+#include <assert.h> 
+#include <time.h> 
 
 char* format_print(int value);
 char* itoa(int value, char* result, int base);
@@ -21,6 +22,7 @@ int read_to_board(GameParams* game_params) {
 	for(int i = 0; i < 9; i++) {
 		game_params->player_name_array[i] = malloc(50 * sizeof(char));
 	}
+	game_params->me_index = 0;
 
 	fp = fopen(game_params->input_file, "r");
 	assert(fp != NULL);
@@ -40,8 +42,9 @@ int read_to_board(GameParams* game_params) {
     if (line_number > 1) {
     	if (line_number > (1 + game_params->y_value)) {
     		token = strtok(line, " ");
-    		if (strcmp(token, "TEAM_NAME_HERE") == 0)
+    		if (strcmp(token, "TEAM_NAME_HERE") == 0) {
     			game_params->me_index = line_number - 2 - game_params->y_value;
+    		} 
     		strcpy(game_params->player_name_array[line_number - 2 - game_params->y_value], token);
     		printf("%s\n", token);
     		printf("%s\n", game_params->player_name_array[line_number - 2 - game_params->y_value]);
@@ -62,6 +65,21 @@ int read_to_board(GameParams* game_params) {
     }
     line_number++;
 	}
+		printf("me_index == %d\n", game_params->me_index);
+
+	if(game_params->me_index == 0) {
+		printf("me_index == 0\n");
+		int count = 0;
+		while(game_params->player_array[count] != 0) {
+			count++;
+		}
+		game_params->me_index = ++count;
+		char token[15] = "TEAM_NAME_HERE";
+    strcpy(game_params->player_name_array[--count], token);
+    game_params->player_array[--count] = ++count + 1;
+    printf("%s\n", game_params->player_name_array[--count]);
+		printf("me_index == %d\n", game_params->me_index);
+	}
 
 	fclose(fp);
 	if (line)
@@ -70,7 +88,23 @@ int read_to_board(GameParams* game_params) {
 	return 1;
 }
 
-void select_available_positions(GameParams* game_params) {
+void place_penguin(GameParams* game_params) {
+	srand(time(NULL));
+
+	int flag = 0;
+
+	do {
+
+		int x = rand() % game_params->x_value;
+		int y = rand() % game_params->y_value;
+		if (game_params->board[x][y] == 10) {
+			game_params->board[x][y] = game_params->player_array[game_params->me_index - 1];
+			game_params->scoreboard_array[game_params->me_index - 1] += 1;
+			flag = 0;
+		} else {
+			flag = 1;
+		}
+	} while (flag == 1);
 
 }
 
