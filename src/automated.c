@@ -33,7 +33,7 @@ int read_to_board(GameParams* game_params) {
     	game_params->y_value = atoi(token);
     	token = strtok(NULL, " ");
     	game_params->x_value = atoi(token);
-	    printf(" x  = %d y =  %d  \n", game_params->x_value, game_params->y_value);
+	    // printf(" x  = %d y =  %d  \n", game_params->x_value, game_params->y_value); 
 	    game_params->board = malloc(game_params->y_value * sizeof(int*));
 			for (int i = 0; i < game_params->y_value; ++i) {
 				game_params->board[i] = malloc(game_params->x_value * sizeof(int));
@@ -46,9 +46,9 @@ int read_to_board(GameParams* game_params) {
     			game_params->me_index = line_number - 2 - game_params->y_value;
     		} 
     		strcpy(game_params->player_name_array[line_number - 2 - game_params->y_value], token);
-    		printf("%s\n", token);
-    		printf("%s\n", game_params->player_name_array[line_number - 2 - game_params->y_value]);
-    		printf("%d\n", line_number - 2 - game_params->y_value);
+    		// printf("%s\n", token);
+    		// printf("%s\n", game_params->player_name_array[line_number - 2 - game_params->y_value]);
+    		// printf("%d\n", line_number - 2 - game_params->y_value);
 				token = strtok(NULL, " ");
 				game_params->player_array[line_number - 2 - game_params->y_value] = atoi(token);
 				token = strtok(NULL, " ");
@@ -65,14 +65,14 @@ int read_to_board(GameParams* game_params) {
     }
     line_number++;
 	}
-		printf("me_index == %d\n", game_params->me_index);
+		// printf("me_index == %d\n", game_params->me_index);
 
 	if(game_params->me_index == 0) {
-		printf("me_index == 0\n");
+		// printf("me_index == 0\n");
 		int count = 0;
-		while(game_params->player_array[count] != 0) {
+		do {
 			count++;
-		}
+		} while(game_params->player_array[count] != 0);
 		game_params->me_index = ++count;
 		char token[15] = "TEAM_NAME_HERE";
     strcpy(game_params->player_name_array[--count], token);
