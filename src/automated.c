@@ -33,7 +33,8 @@ int read_to_board(GameParams* game_params) {
     	game_params->y_value = atoi(token);
     	token = strtok(NULL, " ");
     	game_params->x_value = atoi(token);
-	    // printf(" x  = %d y =  %d  \n", game_params->x_value, game_params->y_value); 
+    	assert(game_params->x_value > 0);
+    	assert(game_params->y_value > 0);
 	    game_params->board = malloc(game_params->y_value * sizeof(int*));
 			for (int i = 0; i < game_params->y_value; ++i) {
 				game_params->board[i] = malloc(game_params->x_value * sizeof(int));
@@ -43,12 +44,9 @@ int read_to_board(GameParams* game_params) {
     	if (line_number > (1 + game_params->y_value)) {
     		token = strtok(line, " ");
     		if (strcmp(token, "TEAM_NAME_HERE") == 0) {
-    			game_params->me_index = line_number - 2 - game_params->y_value;
-    		} 
+    			game_params->me_index = line_number - 1 - game_params->y_value;
+    		}
     		strcpy(game_params->player_name_array[line_number - 2 - game_params->y_value], token);
-    		// printf("%s\n", token);
-    		// printf("%s\n", game_params->player_name_array[line_number - 2 - game_params->y_value]);
-    		// printf("%d\n", line_number - 2 - game_params->y_value);
 				token = strtok(NULL, " ");
 				game_params->player_array[line_number - 2 - game_params->y_value] = atoi(token);
 				token = strtok(NULL, " ");
@@ -65,20 +63,15 @@ int read_to_board(GameParams* game_params) {
     }
     line_number++;
 	}
-		// printf("me_index == %d\n", game_params->me_index);
-
 	if(game_params->me_index == 0) {
-		// printf("me_index == 0\n");
 		int count = 0;
-		do {
-			count++;
-		} while(game_params->player_array[count] != 0);
-		game_params->me_index = ++count;
+		while(game_params->player_array[count] != 0 && game_params->player_array[count] < 10) {
+			count += 1;
+		}
 		char token[15] = "TEAM_NAME_HERE";
-    strcpy(game_params->player_name_array[--count], token);
-    game_params->player_array[--count] = ++count + 1;
-    printf("%s\n", game_params->player_name_array[--count]);
-		printf("me_index == %d\n", game_params->me_index);
+		game_params->me_index = (count + 1);
+    strcpy(game_params->player_name_array[count], token);
+    game_params->player_array[count] = (count + 1);
 	}
 
 	fclose(fp);
@@ -94,7 +87,6 @@ void place_penguin(GameParams* game_params) {
 	int flag = 0;
 
 	do {
-
 		int x = rand() % game_params->x_value;
 		int y = rand() % game_params->y_value;
 		if (game_params->board[x][y] == 10) {
@@ -105,7 +97,17 @@ void place_penguin(GameParams* game_params) {
 			flag = 1;
 		}
 	} while (flag == 1);
+}
 
+void move_penguin(GameParams* game_params) {
+	for (int i = 0; i < game_params->x_value; ++i)	{
+		for (int j = 0; j < game_params->y_value; ++j) {
+			if(game_params->board[i][j] == game_params->me_index) {
+				printf("found me\n i= %d\nj= %d\n", i, j);
+				printf("params= %d\n", game_params->me_index);
+			}
+		}
+	}
 }
 
 void write_to_file(GameParams* game_params) {
@@ -129,14 +131,14 @@ void write_to_file(GameParams* game_params) {
 
 	int index = 0;
 
-	do {
+	while (game_params->player_array[index] != 0) {
 		fprintf(fp, "%s %d %d\n", 
 			game_params->player_name_array[index], 
 			game_params->player_array[index], 
 			game_params->scoreboard_array[index]
 		);
 		index++;
-	} while (game_params->player_array[index] != 0);
+	} 
 
 	fclose(fp);
 

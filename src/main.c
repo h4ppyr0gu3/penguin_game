@@ -14,6 +14,8 @@ int main(int argc, char *argv[]) {
 	char *clear = "clear";
 
 	parse_command_line_arguments(argc, argv, params_ptr);
+
+	printf("phase = %s\n", game_params.phase);
 	if ((strcmp(game_params.phase, "interactive") == 0)) {
 		collect_remaining_arguments(params_ptr);
 		system(clear);
@@ -22,11 +24,12 @@ int main(int argc, char *argv[]) {
 		read_to_board(params_ptr);
 		place_penguin(params_ptr);
 		write_to_file(params_ptr);
-		printf("wrote");
 	} else if ((strcmp(game_params.phase, "movement") == 0)) {
+	printf("in movement\n");
 		read_to_board(params_ptr);
+	printf("read\n");
+		move_penguin(params_ptr);
 		write_to_file(params_ptr);
-		// auto_movement(params_ptr);
 	}
 	
 	return 1;
