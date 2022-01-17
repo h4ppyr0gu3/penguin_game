@@ -11,7 +11,9 @@ int validate_placement(GameParams *game_params, int* array);
 int validate_penguin(GameParams *game_params, int current_player, int* array);
 int validate_movement(GameParams *game_params, int* source, int* destination, int error);
 int validation_loop(int constant, int greater, int lesser, GameParams *game_params, int flag, int error);
-int validate_penguin_can_move(GameParams *game_params, int current_player, int* source);
+int validate_penguin_can_move(GameParams *game_params, int* source);
 int player_can_move(int current_player, GameParams *game_params);
+int i_can_move(GameParams *game_params, int *vector_x, int *vector_y);
+int validate_movement_auto(GameParams *game_params, int* source, int* destination);
 
 #endif

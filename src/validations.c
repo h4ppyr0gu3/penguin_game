@@ -98,7 +98,7 @@ int validation_loop(int constant, int greater, int lesser, GameParams *game_para
 	return 0;
 }
 
-int validate_penguin_can_move(GameParams *game_params, int current_player, int* source) {
+int validate_penguin_can_move(GameParams *game_params, int* source) {
 	int count = 0;
 	int* destination = (int*)malloc(3 * sizeof(int));
 	
@@ -142,7 +142,7 @@ int player_can_move(int current_player, GameParams *game_params) {
 			if (game_params->board[i][j] == game_params->player_array[current_player]) {
 				source[0] = i; 
 				source[1] = j;
-				if (validate_penguin_can_move(game_params, current_player, source) == 0) {
+				if (validate_penguin_can_move(game_params, source) == 0) {
 					count++;
 				}
 			}
@@ -152,4 +152,93 @@ int player_can_move(int current_player, GameParams *game_params) {
 		return 0;
 	}
 	return 1;
+}
+
+int i_can_move(GameParams *game_params, int *vector_x, int *vector_y) {
+	int x_direction = 0, y_direction = 0;
+	for (int i = 0; i < game_params -> penguin_count; ++i) {
+		// printf("sourc = (x: %d, y: %d)", vector_x[i], vector_y[i]);
+		int x = vector_x[i], y = vector_y[i];
+		for (int j = 1; j < game_params -> x_value; ++j) {
+			if (x - j >= 0) {
+				if (game_params->board[x-j][y] != 0 && (game_params -> board[x-j][y] % 10) == 0) {
+					x_direction++;
+				} else break;
+			}
+		}
+		for (int j = 1; j < game_params->x_value; ++j) {
+			if (x + j < game_params->x_value) {
+				if (game_params->board[x+j][y] != 0 && (game_params->board[x+j][y] % 10) == 0) {
+					x_direction++;
+				} else {break;}
+			}
+		}
+		// int y_direction = 0;
+		for (int j = 1; j < game_params->x_value; ++j) {
+			if (x - j >= 0) {
+				if (game_params->board[x][y-j] != 0 && (game_params->board[x][y-j] % 10) == 0) {
+					y_direction++;
+				} else {
+					break;
+				}
+			}
+		}
+
+		for (int j = 1; j < game_params->x_value; ++j) {
+			if (x + j < game_params->x_value) {
+				if (game_params->board[x][y+j] != 0 && (game_params->board[x][y+j] % 10) == 0) {
+						y_direction++;
+				} else break;
+			}
+		}
+	}
+
+	if (x_direction == 0 && y_direction == 0) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+// source[] = [x, y]
+// destination[] = [x, y]
+
+int validate_movement_auto(GameParams *game_params, int* source, int* destination) {
+	int start, end; 
+
+	if (source[0] == destination[0]) {
+		if (source[1] == destination[1])
+			return 1;
+		if (source[1] > destination[1]) {
+			start = destination[1];
+			end = source[1] + 1;
+		} else {
+			start = source[1] + 1;
+			end = destination[1] + 1;
+		}
+
+		for (int i = start; i < end ; ++i) {
+			if (game_params->board[source[0]][i] == 0 || (game_params->board[source[0]][i] % 10) != 0) {
+				return 1;
+			}
+		}
+		return 0;
+
+	} else if (source[1] == destination[1]) {
+		if (source[0] == destination[0])
+			return 1;
+		if (source[0] > destination[0]) {
+			start = destination[0];
+			end = source[0] + 1;
+		} else {
+			start = source[0] + 1;
+			end = destination[0] + 1;
+		}
+
+		for (int i = start; i < end ; ++i) {
+			if (game_params->board[i][source[1]] == 0 || (game_params->board[i][source[1]] % 10) != 0)
+				return 1;
+		}
+		return 0;
+	} else return 1;
 }
