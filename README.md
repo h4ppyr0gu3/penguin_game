@@ -46,10 +46,15 @@ How to Play:
 Game Play Examples:
 
 
-![ask_for_penguin_selection](https://github.com/h4ppyr0gu3/c_test/blob/master/ask_for_penguin_selection.png?raw=true)
-![avatar_selection](https://github.com/h4ppyr0gu3/c_test/blob/master/avatar_selection.png?raw=true)
-![after_eating_fish_ice_remains](https://github.com/h4ppyr0gu3/c_test/blob/master/after_eating_fish_ice_remains.png?raw=true)
-![informative_error](https://github.com/h4ppyr0gu3/c_test/blob/master/informative_error.png?raw=true)
-![place_penguin](https://github.com/h4ppyr0gu3/c_test/blob/master/place_penguin.png?raw=true)
 ![select_avatar](https://github.com/h4ppyr0gu3/c_test/blob/master/select_avatar.png?raw=true)
+- Here you can see the avatar selection screen
+![place_penguin](https://github.com/h4ppyr0gu3/c_test/blob/master/place_penguin.png?raw=true)
+- This is the placing of penguins phase
+![ask_for_penguin_selection](https://github.com/h4ppyr0gu3/c_test/blob/master/ask_for_penguin_selection.png?raw=true)
+- Movement phase with penguin selection
+![informative_error](https://github.com/h4ppyr0gu3/c_test/blob/master/informative_error.png?raw=true)
+- Informative error messages in game
 ![select_source_and_destination](https://github.com/h4ppyr0gu3/c_test/blob/master/select_source_and_destination.png?raw=true)
+- Inputing the coordinates of the source and destination results in penguin movement
+![after_eating_fish_ice_remains](https://github.com/h4ppyr0gu3/c_test/blob/master/after_eating_fish_ice_remains.png?raw=true)
+- After penguin has moved the source is changed to ice
