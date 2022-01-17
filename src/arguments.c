@@ -50,7 +50,7 @@ void parse_command_line_arguments(int argc, char *argv[], GameParams *game_param
 				i++;
 			}  else if ((strcmp(argv[i], "--default") == 0) || (strcmp(argv[i], "-d") == 0)) {
 				(*game_params).x_value = 26;
-				(*game_params).y_value = 15;
+				(*game_params).y_value = 26;
 				(*game_params).player_count = 2;
 				(*game_params).penguin_count = 5;
 				game_params->phase = "interactive";

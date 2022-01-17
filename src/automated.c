@@ -118,6 +118,7 @@ int move_penguin(GameParams* game_params) {
 	}
 
 	game_params->penguin_count = count;
+	
 	if (i_can_move(game_params, vector_x, vector_y) == 0) {
 		srand(time(NULL));
 
