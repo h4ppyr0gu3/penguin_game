@@ -44,10 +44,11 @@ How to Play:
 - The score is the summation of the fish collected by the penguin on its destination 
 
 Game Play Examples:
+
+
 ![ask_for_penguin_selection](https://github.com/h4ppyr0gu3/c_test/blob/master/ask_for_penguin_selection.png?raw=true)
 ![avatar_selection](https://github.com/h4ppyr0gu3/c_test/blob/master/avatar_selection.png?raw=true)
 ![after_eating_fish_ice_remains](https://github.com/h4ppyr0gu3/c_test/blob/master/after_eating_fish_ice_remains.png?raw=true)
-![imaje](https://github.com/h4ppyr0gu3/c_test/blob/master/imaje.png?raw=true)
 ![informative_error](https://github.com/h4ppyr0gu3/c_test/blob/master/informative_error.png?raw=true)
 ![place_penguin](https://github.com/h4ppyr0gu3/c_test/blob/master/place_penguin.png?raw=true)
 ![select_avatar](https://github.com/h4ppyr0gu3/c_test/blob/master/select_avatar.png?raw=true)
