@@ -35,6 +35,13 @@ phase=movement <input_file> <output_file>
 phase=placement penguins=<integer> <input_file> <output_file>
 ```
 
+Testing: 
+```shell
+cd tests
+gcc *.c -o test
+./test  
+```
+
 How to Play:
 - After the game parameters have been set (by command line arguments or in dialogue) each player is asked to choose an avatar
 - The Players then place there penguin (avatar) on a location with 1 fish (integers)
