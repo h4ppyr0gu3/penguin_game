@@ -1,10 +1,3 @@
-# test: test.c
-# 	gcc -c test.c 
-# 	gcc -o test test.o -lm
-# movement: skip_to_movement.c
-# 	gcc -c skip_to_movement.c 
-# 	gcc -o movement skip_to_movement.o -lm
-
 SRC_DIR := src
 OBJ_DIR := src/obj
 BIN_DIR := .
@@ -42,7 +35,3 @@ rebuild: clean
 test: test.c
 	gcc -c test.c 
 	gcc -o test test.o -lm
-
-skip_to_movement: skip_to_movement.c
-	gcc -c skip_to_movement.c 
-	gcc -o movement skip_to_movement.o -lm

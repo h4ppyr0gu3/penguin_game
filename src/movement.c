@@ -6,7 +6,6 @@
 #include "read_values.h"
 #include "movement.h"
 #include "validations.h"
-// #include <math.h>
 
 void movement(GameParams *game_params) {
 
@@ -52,7 +51,7 @@ void read_source(GameParams *game_params, int* source, int current_player) {
 		error_count += validate_x(game_params, source);
 		error_count += validate_y(game_params, source);
 		error_count += validate_penguin(game_params, current_player, source);
-		if (validate_penguin_can_move(game_params, current_player, source) == 0) {
+		if (validate_penguin_can_move(game_params, source) == 0) {
 			error_count++;
 		}
 	} while (error_count > 0);
