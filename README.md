@@ -54,14 +54,14 @@ Game Play Examples:
 
 
 - Here you can see the avatar selection screen   
-![select_avatar](https://github.com/h4ppyr0gu3/c_test/blob/master/select_avatar.png?raw=true)
+![select_avatar](./images/select_avatar.png?raw=true)
 - This is the placing of penguins phase   
-![place_penguin](https://github.com/h4ppyr0gu3/c_test/blob/master/place_penguin.png?raw=true)
+![place_penguin](./images/place_penguin.png?raw=true)
 - Movement phase with penguin selection   
-![ask_for_penguin_selection](https://github.com/h4ppyr0gu3/c_test/blob/master/ask_for_penguin_selection.png?raw=true)
+![ask_for_penguin_selection](./images/ask_for_penguin_selection.png?raw=true)
 - Informative error messages in game   
-![informative_error](https://github.com/h4ppyr0gu3/c_test/blob/master/informative_error.png?raw=true)
+![informative_error](./images/informative_error.png?raw=true)
 - Inputing the coordinates of the source and destination results in penguin movement   
-![select_source_and_destination](https://github.com/h4ppyr0gu3/c_test/blob/master/select_source_and_destination.png?raw=true)
+![select_source_and_destination](./images/select_source_and_destination.png?raw=true)
 - After penguin has moved the source is changed to ice   
-![after_eating_fish_ice_remains](https://github.com/h4ppyr0gu3/c_test/blob/master/after_eating_fish_ice_remains.png?raw=true)
+![after_eating_fish_ice_remains](./images/after_eating_fish_ice_remains.png?raw=true)
