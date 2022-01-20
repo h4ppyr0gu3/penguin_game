@@ -4,8 +4,8 @@ This project is a penguin game for first semester of University implemented in C
 
 Compilation:
 ```shell
-	git clone https://github.com/h4ppyr0gu3/c_test
-	cd c_test
+	git clone https://github.com/h4ppyr0gu3/penguin_game
+	cd penguin_game
 	make
 ```
 Advanced compilation options:
